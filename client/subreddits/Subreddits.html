@@ -1,0 +1,14 @@
+<template name="Subreddits">
+    <h3>SUBREDDITS</h3>
+
+
+    <section class="subreddits">
+        {{#if Template.subscriptionsReady}}
+            {{#each subreddits}}
+                {{> Subreddit}}
+            {{/each}}
+        {{else}}
+            <p>Loading</p>
+        {{/if}}
+    </section>
+</template>
