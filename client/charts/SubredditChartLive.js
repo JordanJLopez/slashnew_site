@@ -124,7 +124,7 @@ Template.SubredditChartLive.onRendered(function() {
             }
 
             // Reduce amount of data to fit max
-            while (dataCount > maxData.value) {
+            while (dataCount > maxData) {
                     chart.data.labels.shift();
                     chart.data.datasets.forEach((dataset) => {
                         dataset.data.shift();
