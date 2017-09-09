@@ -1,7 +1,16 @@
-Meteor.publish('subreddits', function(){
-    return Subreddits.find({'name': {$ne: 'all'}}, {sort: {count: -1}, limit: 10});
+Meteor.publish('topSubreddits', function(){
+
+    return Subreddits.find({'name': {$ne: 'all'}}, {sort: {count: -1, date: -1}});
 });
 
-Meteor.publish('singleSubreddit', function(subreddit) {
-    return Subreddits.find({name: subreddit});
+Meteor.publish('subredditsAll', function() {
+    return Subreddits.find({'name': 'all'}, {sort: {count: -1, date: -1}});
+})
+
+Meteor.publish('liveSubreddit', function(subreddit, date_str) {
+    return Subreddits.find({name: subreddit, time: date_str});
+})
+
+Meteor.publish('subreddit', function(subreddit) {
+    return Subreddits.find({'name': subreddit}, {sort: {date: -1}});
 })

@@ -1,11 +1,19 @@
 <template name="SubredditChart">
-    <header>
-        <h2>Top 10 Subreddits by # of New Posts</h2>
-    </header>
-    <article class="subredditChart">
-        <div class="chart-container" style="position: relative; height 120px; width:80vw">
-            <canvas id="chart"></canvas>
+
+    <div class="container center-align animated fadeInRight">
+        <div class="row">
+             <h3 class = "col s12 bold center"><a href="https://www.reddit.com/r/{{subreddit.name}}/">&#x2F;r&#x2F;{{subreddit.name}}</a> Posts by Day</h3>
         </div>
-    </article>
+        <article class="subredditChart">
+            <div class="chart-container" style="position: relative;">
+                <canvas id="chart"></canvas>
+            </div>
+        </article>
+        <div class="row">
+            <a href="." class="waves-effect blue lighten-2 waves-light btn col s2">Posts Live</a>
+            <p class = "col s10 right-align">Date defined by server time (CDT)</p>
+        </div>
+
+    </div>
 
 </template>

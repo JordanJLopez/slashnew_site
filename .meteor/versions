@@ -16,6 +16,7 @@ caching-html-compiler@1.1.2
 callback-hook@1.0.10
 check@1.2.5
 coffeescript@1.0.17
+dapearce:material-icons@0.1.5
 datariot:ganalytics@0.2.1
 ddp@1.3.0
 ddp-client@2.0.0
@@ -64,6 +65,9 @@ modules-runtime@0.8.0
 momentjs:moment@2.10.6
 mongo@1.1.22
 mongo-id@1.0.6
+mrt:moment@2.8.1
+mrt:moment-timezone@0.2.1
+natestrauser:animate-css@3.5.1
 npm-mongo@2.2.30
 observe-sequence@1.0.16
 ordered-dict@1.0.9

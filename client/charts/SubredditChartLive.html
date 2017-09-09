@@ -1,0 +1,60 @@
+<template name="SubredditChartLive">
+
+    <style>
+
+          input[type=range]::-webkit-slider-thumb {
+            background-color: #64b5f6;
+          }
+          input[type=range]::-moz-range-thumb {
+            background-color: #64b5f6;
+          }
+          input[type=range]::-ms-thumb {
+            background-color: #64b5f6;
+          }
+          /***** These are to edit the thumb and the text inside the thumb *****/
+          input[type=range] + .thumb {
+            background-color: #dedede;
+          }
+          input[type=range] + .thumb.active .value {
+            color: #0d47a1;
+          }
+    </style>
+
+    <div class="container center-align animated fadeInLeft ">
+        <div class="row">
+             <h3 class = "col s12 bold center"><a href="https://www.reddit.com/r/{{subreddit.name}}/">&#x2F;r&#x2F;{{subreddit.name}}</a> slashnew</h3>
+        </div>
+        <article class="subredditChartLive">
+            <div class="chart-container" style="position: relative;">
+                <canvas id="chart"></canvas>
+            </div>
+            <div class="row">
+<!--                 <p class = "col s2">Max Data Points:</p>
+                <form action="#">
+                    <p class="range-field col s8">
+                        <input type="range" id="chartSlider" min="1" max="100" />
+                    </p>
+                </form> -->
+                <p class = "col s12 right-align">Update frequency dependent on Reddit API</p>
+<!--                 <p><a href="./chart" class="waves-effect blue lighten-2 waves-light btn col s2">Posts by Day</a></p> -->
+            </div>
+        </article>
+
+        <article class="subredditLatest">
+
+            <div class="row z-depth-2 blue lighten-4">
+                  <h5 class="col s12">Latest Post on <a href="https://www.reddit.com/r/{{subreddit.last_subreddit}}/">&#x2F;r&#x2F;{{subreddit.last_subreddit}}</a></h5>
+                <p class="col s12 flow-text"><a href="{{subreddit.last_shortlink}}">{{subreddit.last_title}}</a></p>
+
+                {{#if subreddit.last_over_18}}
+                    <p class="col s4 red-text text-darken-2">NSFW</p>
+                {{else}}
+                    <p class="col s4"></p>
+                {{/if}}
+                <p class="col s4 offset-s4"><a href="https://www.reddit.com/u/{{subreddit.last_author}}">&#x2F;u&#x2F;{{subreddit.last_author}}</a></p>
+
+            </div>
+        </article>
+    </div>
+
+</template>
