@@ -17,7 +17,7 @@ Template.SubredditChartLive.onRendered(function() {
     var data = {
         labels: [timeString],
         datasets: [{
-            label: '# of Posts',
+            label: '# Of Submissions Since ' + moment().format('LT'),
             data: [0],
             yAxisID: 'left-y-axis'
         },
@@ -53,7 +53,7 @@ Template.SubredditChartLive.onRendered(function() {
                         },
                         scaleLabel: {
                             display: true,
-                            labelString: '# Of Posts'
+                            labelString: '# Of Submissions'
                         }
                     },
                     {
@@ -70,7 +70,7 @@ Template.SubredditChartLive.onRendered(function() {
                     },
                     scaleLabel: {
                             display: true,
-                            labelString: '# Of Posts Added'
+                            labelString: '# Of Submissions Added'
                     }
                 }],
                 bezierCurve: false
@@ -89,7 +89,7 @@ Template.SubredditChartLive.onRendered(function() {
     var maxData = 50;
 
     self.autorun(function() {
-        var date_str = moment().tz('America/Chicago').format('L');
+        var date_str = moment().format('L');
 
         self.subscribe('liveSubreddit', subreddit, date_str);
         var cursor =  Subreddits.findOne();
@@ -144,6 +144,16 @@ Template.SubredditChartLive.helpers({
     subreddit: ()=> {
         var subreddit = FlowRouter.getParam('subreddit').toLowerCase();
         return Subreddits.findOne({name: subreddit});
+    },
+
+    route_name: ()=> {
+        return FlowRouter.getParam('subreddit').toLowerCase();
+    },
+
+    data_exists: ()=> {
+        // Returns true if there exists data in the database
+        var subreddit = FlowRouter.getParam('subreddit').toLowerCase();
+        return Subreddits.findOne({name: subreddit})  !== undefined;
     },
 
     sn_date: ()=> {

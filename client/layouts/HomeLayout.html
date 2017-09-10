@@ -2,8 +2,23 @@
     {{> Header}}
 
     <main>
-        <div class="billboard">
-            <h2>What's new on reddit?</h2>
+        <div class="billboard container center animated fadeInUp">
+            <br>
+            <h2>{{subreddit.count}} Submissions Today</h2>
+            <br>
+            <h5>Livestream Reddit's &#x2F;new Queue</h5>
+            <br>
+            <div class="row">
+                <form class="subreddit-search">
+                    <div class="center-align input-field blue-text col s8 offset-s2">
+                        <input  id="search" style="font-size:6vmin;text-align: center; border-bottom: 1px solid black !important; box-shadow: 0 1px 0 0 black !important" type='search' name='text' value='all'/>
+                        <label class="active" style="color: black !important;" for="search">Subreddit</label>
+                    </div>
+                </form>
+            </div>
+            <div class="row">
+                <a id='search-button' class="waves-effect waves-light btn col red darken-3 white-text s4 offset-s4">slashnew</a>
+            </div>
         </div>
     </main>
 </template>
