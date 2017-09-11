@@ -8,9 +8,10 @@ Meteor.publish('subredditsAll', function() {
 })
 
 Meteor.publish('liveSubreddit', function(subreddit, date_str) {
-    return Subreddits.find({name: subreddit, time: date_str});
+
+    return Subreddits.find({'name': subreddit}, {sort: {time: -1}});
 })
 
 Meteor.publish('subreddit', function(subreddit) {
-    return Subreddits.find({'name': subreddit}, {sort: {date: -1}});
+    return Subreddits.find({'name': subreddit}, {sort: {time: -1}});
 })
