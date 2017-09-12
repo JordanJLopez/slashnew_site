@@ -1,2 +1,2 @@
 # slashnew_site
-Front end for Slashnew
+Front end for slashnew.com
