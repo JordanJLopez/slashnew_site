@@ -1,7 +1,7 @@
 Meteor.publish('topSubreddits', function(){
 
     return Subreddits.find({'name': {$ne: 'all'}}, {sort: {count: -1, date: -1}});
-});
+})
 
 Meteor.publish('subredditsAll', function() {
     return Subreddits.find({'name': 'all'}, {sort: {count: -1, date: -1}});
