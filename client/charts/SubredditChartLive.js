@@ -52,8 +52,8 @@ Template.SubredditChartLive.onRendered(function() {
                             suggestedMax: 50,
                         },
                         scaleLabel: {
-                            display: true,
-                            labelString: '# Of Submissions'
+                            display: true
+                            // labelString: '# Of Submissions'
                         }
                     },
                     {
@@ -69,8 +69,8 @@ Template.SubredditChartLive.onRendered(function() {
                         // max:100
                     },
                     scaleLabel: {
-                            display: true,
-                            labelString: '# Of Submissions Added'
+                            display: true
+                            // labelString: '# Of Submissions Added'
                     }
                 }],
                 bezierCurve: false
@@ -89,7 +89,7 @@ Template.SubredditChartLive.onRendered(function() {
     var maxData = 50;
 
     self.autorun(function() {
-        var date_str = moment().format('L');
+        var date_str = moment().format('LT');
 
         self.subscribe('liveSubreddit', subreddit, date_str);
         var cursor =  Subreddits.findOne();
@@ -114,7 +114,7 @@ Template.SubredditChartLive.onRendered(function() {
 
             }
 
-            timeString = moment().format('L');
+            timeString = moment().format('LT');
             if(delta > 0) {
                 chart.data.labels.push(timeString);
                 chart.data.datasets[0].data.push(cursor.count - firstCount);

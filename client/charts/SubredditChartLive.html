@@ -15,7 +15,7 @@
                   {{else}}
                     <p class = "col s4 left-align">0 submissions today</p>
                   {{/if}}
-                  <p class = "col s8 right-align">Update frequency dependent on Reddit API</p>
+                  <p class="col s8 right-align"><a href="/r/{{route_name}}/chart" class="waves-effect blue lighten-2 waves-light btn">Posts by Day</a></p>
 
               </div>
           </article>
@@ -37,11 +37,17 @@
                 </div>
             </article>
           {{else}}
+          <br>
+          <br>
+          <br>
             <div class="container center-align">
-            <p class="col s12 bold center flow-text">Uh oh! Looks like there haven't been any posts in <a href="https://www.reddit.com/r/{{route_name}}/" target="_blank">&#x2F;r&#x2F;{{route_name}}</a> today.</p>
-            <p class="col s8 offset-s2 center flow-text">Please check back later!</p>
+              <div class="progress">
+                <div class="indeterminate blue lighten-2"></div>
+                </div>
             </div>
           {{/if}}
+
+      <p class = "col s12 right-align">Update frequency dependent on Reddit API</p>
       </div>
 
 

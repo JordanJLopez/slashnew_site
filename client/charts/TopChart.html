@@ -1,0 +1,18 @@
+<template name="TopChart">
+
+    <div class="container center-align animated fadeInRight">
+        <div class="row">
+             <h3 class = "col s12 bold center">Top 10 Subreddits by Submission Count</h3>
+        </div>
+        <article class="topChart">
+            <div class="chart-container" style="position: relative;">
+                <canvas id="chart"></canvas>
+            </div>
+        </article>
+        <div class="row">
+            <p class = "col s12 right-align">Counts are for {{subreddit.time}} CDT</p>
+        </div>
+
+    </div>
+
+</template>

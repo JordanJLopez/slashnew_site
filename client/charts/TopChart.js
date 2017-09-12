@@ -1,4 +1,4 @@
-Template.SubredditChart.onCreated(function() {
+Template.TopChart.onCreated(function() {
     var self = this;
 
     // self.autorun(function() {
@@ -8,7 +8,7 @@ Template.SubredditChart.onCreated(function() {
     // });
 })
 
-Template.SubredditChart.onRendered(function() {
+Template.TopChart.onRendered(function() {
 
     var self = this;
     var subreddit = 'all'
@@ -27,12 +27,15 @@ Template.SubredditChart.onRendered(function() {
     });
 
     self.autorun(function() {
-        var subreddit = FlowRouter.getParam('subreddit').toLowerCase();
-        self.subscribe('subreddit', subreddit);
+        self.subscribe('topSubreddits', subreddit);
         var cursor = Subreddits.find();
-        var chart_labels = cursor.map(function(a) {return a.time;});
-        cursor.rewind();
-        var chart_data = cursor.map(function(a) {return a.count;});
+        var chart_labels = []
+        var chart_data = []
+
+        cursor.forEach(function(item){
+            chart_labels.push(item.name);
+            chart_data.push(item.count);
+        })
 
         chart.data.labels = chart_labels;
         chart.data.datasets[0].data = chart_data;
@@ -43,9 +46,8 @@ Template.SubredditChart.onRendered(function() {
 })
 
 
-Template.SubredditChart.helpers({
+Template.TopChart.helpers({
     subreddit: ()=> {
-        var subreddit = FlowRouter.getParam('subreddit').toLowerCase();
-        return Subreddits.findOne({name: subreddit});
+        return Subreddits.findOne();
     },
 })
